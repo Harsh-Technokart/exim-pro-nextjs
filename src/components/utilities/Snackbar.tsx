@@ -6,7 +6,7 @@ import Snackbar, { SnackbarCloseReason } from "@mui/joy/Snackbar";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { IconButton } from "@mui/joy";
 
-export default function SnackbarComponent(props: {
+export default function Snackbars(props: {
   snackbar: {
     open: boolean;
     message: string;
