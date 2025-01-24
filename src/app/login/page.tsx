@@ -1,19 +1,11 @@
-"use client";
+// "use client";
 import React from "react";
-import styles from "@/app/login/login-page.module.css"; // Importing the CSS module
-import { NavBar } from "@/components/login/nav";
-import { LogoImage, LoginImage } from "@/components/login/image";
-import LoginForm from "@/components/login/form";
-import { Snackbar } from "@/components";
-import { ISnackbar } from "@/interface";
+import styles from "@/app/login/login-page.module.css";
+import { NavBar } from "@/components/login/NavBar";
+import { LogoImage, LoginImage } from "@/components/login/LoginImage";
+import LoginForm from "@/components/login/LoginForm";
 
 export default function LoginPage() {
-  const [snackbar, setSnackbar] = React.useState<ISnackbar>({
-    open: false,
-    message: "",
-    status: "success",
-  });
-
   return (
     <div className={styles.page_wrapper}>
       <div className={styles.loginpage}>
@@ -31,10 +23,8 @@ export default function LoginPage() {
         </div>
       </div>
       <div className={styles.login_image}>
-        {" "}
-        <LoginImage />{" "}
+        <LoginImage />
       </div>
-      <Snackbar snackbar={snackbar} setSnackbar={setSnackbar} />
     </div>
   );
 }

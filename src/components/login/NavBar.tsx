@@ -1,4 +1,4 @@
-
+"use client";
 import React from "react";
 import { IconButton } from "@mui/joy";
 import { DarkMode, LightMode } from "@mui/icons-material";
@@ -8,7 +8,10 @@ export const NavBar = () => {
   const { mode, handleTheme } = React.useContext(ThemeContext);
 
   return (
-    <IconButton onClick={handleTheme} sx={{ position: "absolute", top: 16, right: 16 }}>
+    <IconButton
+      onClick={handleTheme}
+      sx={{ position: "absolute", top: 16, right: 16 }}
+    >
       {mode === "dark" ? <DarkMode /> : <LightMode />}
     </IconButton>
   );
