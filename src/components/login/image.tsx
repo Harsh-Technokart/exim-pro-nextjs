@@ -6,5 +6,5 @@ export const LogoImage = () => (
 );
 
 export const LoginImage = () => (
-  <Image src="/login.png" alt="login illustration" width="800" height="500" />
+  <Image src="/login.png" alt="login illustration" width={500} height={300} />
 );
