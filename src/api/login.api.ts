@@ -82,10 +82,7 @@ export const logout = async (): Promise<{
     status: boolean;
     statusCode: number;
   }> = await axios
-    .delete(
-      `${process.env.NEXT_PUBLIC_DEV_SERVER}/auth/session`,
-      requestHeaders
-    )
+    .delete(`${process.env.NEXT_PUBLIC_DEV_SERVER}/session`, requestHeaders)
     .catch((error) => {
       return customErrorHandler(error);
     });
