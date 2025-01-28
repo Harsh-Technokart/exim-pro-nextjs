@@ -6,7 +6,7 @@ import Snackbar, { SnackbarCloseReason } from "@mui/joy/Snackbar";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { IconButton } from "@mui/joy";
 
-export default function SnackbarComponent(props: {
+export default function Snackbars(props: {
   snackbar: {
     open: boolean;
     message: string;
@@ -37,18 +37,18 @@ export default function SnackbarComponent(props: {
 
   return (
     <Snackbar
-      variant="soft"
+      variant="solid"
       size="sm"
       sx={{ py: 1, fontSize: 14 }}
       autoHideDuration={3000}
       color={props.snackbar.status}
       open={props.snackbar.open}
       onClose={handleClose}
-      anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       endDecorator={
         <IconButton
           onClick={handleClose}
-          variant="plain"
+          variant="solid"
           size="sm"
           color={props.snackbar.status}
         >
