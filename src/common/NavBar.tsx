@@ -57,7 +57,18 @@ export const NavBar = () => {
       </Box>
 
       {/* Theme Toggle */}
-      <IconButton onClick={handleTheme}>
+      <IconButton
+        onClick={handleTheme}
+        sx={{
+          color: "white",
+          borderRadius: "50%",
+          "&:hover": {
+            backgroundColor: "transparent",
+            color: "white",
+            borderRadius: "50%",
+          },
+        }}
+      >
         {mode === "dark" ? <DarkMode /> : <LightMode />}
       </IconButton>
     </Box>

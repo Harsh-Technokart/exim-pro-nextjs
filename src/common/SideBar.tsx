@@ -12,6 +12,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import Avatar from "@mui/joy/Avatar";
 import Typography from "@mui/joy/Typography";
 import { logout } from "@/api";
+import PersonIcon from "@mui/icons-material/Person";
 
 export const SideBar = () => {
   const [open, setOpen] = React.useState(false);
@@ -35,11 +36,23 @@ export const SideBar = () => {
   };
 
   return (
-    <div className="side" style={{ width: "15%" }}>
-      <IconButton variant="plain" onClick={() => setOpen(true)}>
+    <Box>
+      <IconButton
+        variant="plain"
+        onClick={() => setOpen(true)}
+        sx={{
+          color: "white",
+          borderRadius: "50%",
+          "&:hover": {
+            backgroundColor: "transparent",
+            color: "white",
+            borderRadius: "50%",
+          },
+        }}
+      >
         <MenuIcon />
       </IconButton>
-      <Drawer open={open} onClose={() => setOpen(false)}>
+      <Drawer open={open} onClose={() => setOpen(false)} size="sm">
         <Box
           sx={{
             display: "flex",
@@ -72,7 +85,7 @@ export const SideBar = () => {
               sx={{
                 width: 60,
                 height: 60,
-                backgroundColor: "#4a90e2",
+                backgroundColor: "#29328A",
                 color: "#fff",
                 fontSize: 24,
               }}
@@ -89,22 +102,38 @@ export const SideBar = () => {
             component="nav"
             sx={{
               flex: "none",
-              fontSize: "xl",
+              fontSize: "sm",
               "& > div": { justifyContent: "center" },
             }}
           >
-            <ListItemButton sx={{ fontWeight: "lg" }}>Home</ListItemButton>
-            <ListItemButton>About</ListItemButton>
-            <ListItemButton>Contact</ListItemButton>
+            <ListItemButton
+              sx={{
+                fontWeight: "sm",
+                background: "#5554B2",
+                color: "white",
+                borderRadius: "12px",
+                width: "55%",
+                alignSelf: "center",
+              }}
+            >
+              <PersonIcon />
+              Orbglo User
+            </ListItemButton>
+            <ListItemButton>Company</ListItemButton>
+            <ListItemButton>Company User</ListItemButton>
           </List>
 
-          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 5 }} />
 
           <Button
             variant="solid"
             sx={{
               backgroundColor: "#fff",
               color: "#000",
+              margin: "70px",
+              justifyContent: "space-between",
+              fontSize: "sm",
+
               "&:hover": {
                 backgroundColor: "#888",
               },
@@ -116,6 +145,6 @@ export const SideBar = () => {
           </Button>
         </Box>
       </Drawer>
-    </div>
+    </Box>
   );
 };

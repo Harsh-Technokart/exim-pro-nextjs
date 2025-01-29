@@ -10,7 +10,16 @@ export const NavBar = () => {
   return (
     <IconButton
       onClick={handleTheme}
-      sx={{ position: "absolute", top: 16, right: 16 }}
+      sx={{
+        position: "absolute",
+        top: 16,
+        right: 16,
+        borderRadius: "50%",
+        "&:hover": {
+          backgroundColor: "transparent",
+          borderRadius: "50%",
+        },
+      }}
     >
       {mode === "dark" ? <DarkMode /> : <LightMode />}
     </IconButton>
