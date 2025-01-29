@@ -26,62 +26,65 @@ function TablePagination(props: {
   };
   return (
     <div className="page_and_limit_wrapper">
-      <Select
-        size="sm"
-        value={props.pageAndLimit.limit}
-        name={"page_and_limit"}
-        onChange={handleChange}
-        indicator={<KeyboardArrowDown />}
-        sx={{
-          minHeight: "unset",
-          minWidth: "5%",
-          marginLeft: "1rem",
-          [`& .${selectClasses.indicator}`]: {
-            transition: "0.2s",
-            [`&.${selectClasses.expanded}`]: {
-              transform: "rotate(-180deg)",
+      <div style={{ display: "flex", marginTop: "15px" }}>
+        <div style={{ marginTop: "12px" }}>Rows Per Page:</div>
+        <Select
+          size="sm"
+          value={props.pageAndLimit.limit}
+          name={"page_and_limit"}
+          onChange={handleChange}
+          indicator={<KeyboardArrowDown />}
+          sx={{
+            // minHeight: "unset",
+            minWidth: "5%",
+            marginLeft: "1rem",
+            [`& .${selectClasses.indicator}`]: {
+              transition: "0.2s",
+              [`&.${selectClasses.expanded}`]: {
+                transform: "rotate(-180deg)",
+              },
             },
-          },
-        }}
-      >
-        {[10, 20, 50, 100].map((e) => (
-          <Option key={e} value={e}>
-            {e.toString()}
-          </Option>
-        ))}
-      </Select>
-      <p className="page_and_limit_counts">
-        {(props.pageAndLimit.page - 1) * props.pageAndLimit.limit + 1}-
-        {props.pageAndLimit.page * props.pageAndLimit.limit} of{" "}
-        {props.pageData.totalDocs}
-      </p>
-      <div className="page_buttons">
-        <IconButton
-          size="sm"
-          disabled={!props.pageData.hasPrevPage}
-          sx={{ paddingLeft: "0.75rem" }}
-          onClick={() => {
-            props.setPageAndLimit((prevstate) => ({
-              ...prevstate,
-              page: prevstate.page - 1,
-            }));
           }}
         >
-          <ArrowBackIosIcon />
-        </IconButton>
-        <IconButton
-          size="sm"
-          disabled={!props.pageData.hasNextPage}
-          sx={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}
-          onClick={() => {
-            props.setPageAndLimit((prevstate) => ({
-              ...prevstate,
-              page: prevstate.page + 1,
-            }));
-          }}
-        >
-          <ArrowForwardIosIcon />
-        </IconButton>
+          {[10, 20, 50, 100].map((e) => (
+            <Option key={e} value={e}>
+              {e.toString()}
+            </Option>
+          ))}
+        </Select>
+        <p className="page_and_limit_counts">
+          {(props.pageAndLimit.page - 1) * props.pageAndLimit.limit + 1}-
+          {props.pageAndLimit.page * props.pageAndLimit.limit} of{" "}
+          {props.pageData.totalDocs}
+        </p>
+        <div className="page_buttons">
+          <IconButton
+            size="sm"
+            disabled={!props.pageData.hasPrevPage}
+            sx={{ paddingLeft: "0.75rem" }}
+            onClick={() => {
+              props.setPageAndLimit((prevstate) => ({
+                ...prevstate,
+                page: prevstate.page - 1,
+              }));
+            }}
+          >
+            <ArrowBackIosIcon sx={{ marginTop: "15px" }} />
+          </IconButton>
+          <IconButton
+            size="sm"
+            disabled={!props.pageData.hasNextPage}
+            sx={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}
+            onClick={() => {
+              props.setPageAndLimit((prevstate) => ({
+                ...prevstate,
+                page: prevstate.page + 1,
+              }));
+            }}
+          >
+            <ArrowForwardIosIcon />
+          </IconButton>
+        </div>
       </div>
     </div>
   );
