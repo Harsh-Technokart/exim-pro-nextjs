@@ -1,18 +1,15 @@
 "use client";
-
-import * as yup from "yup";
-
-import { Box, Button, Checkbox, Link, Stack } from "@mui/joy";
 import React, { useState } from "react";
-import { Snackbar, TextInput } from "@/components";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-
-import { ISnackbar } from "@/interface";
-import { handleErrorSnackbar } from "@/utils/errorHnadling";
-import { login } from "@/api";
 import { useFormik } from "formik";
+import * as yup from "yup";
+import { Box, Button, Checkbox, Link, Stack } from "@mui/joy";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { Snackbar, TextInput } from "@/components";
 import { useRouter } from "next/navigation";
 import { useSessionStore } from "@/stores";
+import { login } from "@/api";
+import { handleErrorSnackbar } from "@/utils/errorHnadling";
+import { ISnackbar } from "@/interface";
 
 function LoginForm() {
   const router = useRouter();
@@ -37,7 +34,7 @@ function LoginForm() {
           message: "Login Successful",
           status: "success",
         });
-        router.push("/home/project-management");
+        router.push("/home");
       } else if (response.error) {
         handleErrorSnackbar(
           setLoading,

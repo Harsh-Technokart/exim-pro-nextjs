@@ -1,4 +1,3 @@
-// "use client";
 import React from "react";
 import styles from "@/app/login/login-page.module.css";
 import { NavBar } from "@/components/login/NavBar";

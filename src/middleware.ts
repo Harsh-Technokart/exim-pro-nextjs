@@ -6,8 +6,6 @@ export function middleware(request: NextRequest) {
 
   if (pathname === "/") {
     return NextResponse.redirect(new URL("/login", request.url));
-  } else if (pathname === "/home") {
-    return NextResponse.redirect(new URL("/home/user-management", request.url));
   }
 }
 

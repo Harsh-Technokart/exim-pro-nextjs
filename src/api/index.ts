@@ -1,3 +1,3 @@
-import { login } from "./login.api";
+import { login, logout } from "./login.api";
 
-export { login };
+export { login, logout };
