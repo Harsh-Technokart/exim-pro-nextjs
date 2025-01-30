@@ -82,11 +82,11 @@ export default function Page() {
         sx={{
           width: "96%",
           margin: "2rem",
+          justifyContent: "space-between",
           display: "flex",
-          justifyContent: "space-around",
         }}
       >
-        <FormControl sx={{ flex: 1 }} size="sm">
+        <FormControl sx={{ flexGrow: 9 }} size="sm">
           <FormLabel>Search for Company User</FormLabel>
           <Input
             placeholder="Search"
@@ -95,11 +95,12 @@ export default function Page() {
             endDecorator={<SearchIcon />}
           />
         </FormControl>
+
         <Box
           sx={{
             width: "20%",
             height: "10%",
-            margin: "20px",
+            marginTop: "20px",
           }}
         >
           <Button
@@ -110,6 +111,8 @@ export default function Page() {
               background: "#29328A",
               color: "white",
               "&:hover": { color: "white", bgcolor: "#29328A" },
+              flexGrow: "1",
+              marginLeft: "120px",
             }}
           >
             Add New user

@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Modal, Typography, Stack, Button } from "@mui/joy";
 import { TextInput } from "@/components";
 import { useFormik } from "formik";
+import SelectUserRadio from "@/common/Radio";
 import * as yup from "yup";
 
 export default function AddUser({
@@ -45,12 +46,14 @@ export default function AddUser({
           bgcolor: "white",
           boxShadow: 24,
           p: 4,
+
           borderRadius: 2,
         }}
       >
         <Typography level="h4" component="h2" mb={2}>
           Add New User
         </Typography>
+
         <form onSubmit={formik.handleSubmit}>
           <TextInput
             value={formik.values.Username}
@@ -87,17 +90,8 @@ export default function AddUser({
             required={true}
             formik={formik}
           />
-          <TextInput
-            value={formik.values.Role}
-            item={{
-              label: "Role",
-              name: "Role",
-              placeholder: "Enter your role",
-              type: "text",
-            }}
-            required={true}
-            formik={formik}
-          />
+
+          <SelectUserRadio formik={formik} />
 
           <Stack sx={{ gap: 4, mt: 2 }}>
             <Button type="submit">Submit</Button>
